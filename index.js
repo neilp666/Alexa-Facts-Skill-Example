@@ -24,7 +24,13 @@ const handlers = {
       this.emit('GetSiliconValleyFactIntent');
   },
   'GetSiliconValleyFactIntent': function() {
+      const factSiliconValley = data;
+      const factIndex = Math.floor(Math.random() * factSiliconValley.length);
+      const randomFact = factSiliconValley[factIndex];
+      const speechOutput = GET_FACT_NAME + randomFact;
 
+      this.response.speak(speechOutput);
+      this.emit(':responseReady');
   },
   'AMAZON.HelpIntent': function () {
     const speechOutput = HELP_MESSAGE;
